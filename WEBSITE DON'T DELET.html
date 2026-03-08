@@ -1,0 +1,1726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hat Tip — Founder Brand for Startups</title>
+  <meta name="description" content="Catalyst is the growth partner for ambitious B2B SaaS companies. We build pipeline, not just awareness.">
+  <link rel="icon" type="image/png" href="Logo_Blue.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+  <style>
+    /* =========================================================
+       CSS CUSTOM PROPERTIES
+       ========================================================= */
+    :root {
+      /* Brand */
+      --color-primary: #2853fb;
+      --color-primary-hover: #1a3fd4;
+      --color-primary-active: #1533b0;
+      --color-canvas: #f8f6ed;
+      --color-canvas-alt: #f1efe4;
+
+      /* Neutrals */
+      --color-text: #1a1a1a;
+      --color-text-secondary: #5a5a52;
+      --color-text-tertiary: #8a8a80;
+      --color-border: #e2e0d5;
+      --color-border-light: #eceadf;
+      --color-white: #ffffff;
+      --color-card-bg: #ffffff;
+      --color-card-shadow: rgba(26, 26, 26, 0.06);
+      --color-card-shadow-hover: rgba(26, 26, 26, 0.12);
+
+      /* Typography Scale (fluid) */
+      --fs-display: clamp(3rem, 6vw + 1rem, 5.5rem);
+      --fs-h2: clamp(2rem, 3vw + 0.5rem, 3rem);
+      --fs-h3: clamp(1.25rem, 1.5vw + 0.5rem, 1.5rem);
+      --fs-h4: clamp(1.05rem, 1vw + 0.5rem, 1.2rem);
+      --fs-body: clamp(1rem, 0.5vw + 0.85rem, 1.125rem);
+      --fs-small: clamp(0.85rem, 0.3vw + 0.75rem, 0.95rem);
+      --fs-xs: 0.8rem;
+
+      /* Spacing */
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 1.5rem;
+      --space-lg: 2.5rem;
+      --space-xl: 4rem;
+      --space-2xl: 6rem;
+      --space-3xl: 8rem;
+
+      /* Layout */
+      --container-max: 1160px;
+      --container-padding: clamp(1.25rem, 3vw, 2.5rem);
+      --nav-height: 72px;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-pill: 100px;
+
+      /* Transitions */
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+      --duration-fast: 0.2s;
+      --duration-base: 0.35s;
+      --duration-slow: 0.6s;
+    }
+
+
+    /* =========================================================
+       RESET & BASE
+       ========================================================= */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: 'Instrument Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: var(--fs-body);
+      line-height: 1.6;
+      color: var(--color-text);
+      background-color: var(--color-canvas);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    /* Scroll offset for sticky nav */
+    section[id] {
+      scroll-margin-top: calc(var(--nav-height) + 1rem);
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+      border: none;
+      cursor: pointer;
+      background: none;
+    }
+
+    ul, ol {
+      list-style: none;
+    }
+
+    /* Visible focus styles for keyboard users */
+    :focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+
+    /* Skip link */
+    .skip-link {
+      position: fixed;
+      top: -100%;
+      left: var(--space-sm);
+      z-index: 9999;
+      padding: var(--space-xs) var(--space-sm);
+      background: var(--color-primary);
+      color: var(--color-white);
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: var(--fs-small);
+      transition: top var(--duration-fast) var(--ease-out);
+    }
+    .skip-link:focus {
+      top: var(--space-sm);
+    }
+
+
+    /* =========================================================
+       LAYOUT UTILITIES
+       ========================================================= */
+    .container {
+      width: 100%;
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding-left: var(--container-padding);
+      padding-right: var(--container-padding);
+    }
+
+    .section-padding {
+      padding-top: var(--space-3xl);
+      padding-bottom: var(--space-3xl);
+    }
+
+    @media (max-width: 768px) {
+      .section-padding {
+        padding-top: var(--space-2xl);
+        padding-bottom: var(--space-2xl);
+      }
+    }
+
+    /* Section label (small caps above heading) */
+    .section-label {
+      display: inline-block;
+      font-size: var(--fs-xs);
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-primary);
+      margin-bottom: var(--space-sm);
+    }
+
+    .section-heading {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: var(--fs-h2);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--color-text);
+      max-width: 680px;
+    }
+
+    .section-subheading {
+      font-size: var(--fs-body);
+      color: var(--color-text-secondary);
+      max-width: 560px;
+      margin-top: var(--space-sm);
+      line-height: 1.6;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: var(--space-xl);
+    }
+    .section-header .section-heading,
+    .section-header .section-subheading {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+
+    /* =========================================================
+       SCROLL REVEAL ANIMATION
+       ========================================================= */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity var(--duration-slow) var(--ease-out),
+                  transform var(--duration-slow) var(--ease-out);
+    }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* Staggered children */
+    .reveal-stagger > .reveal-child {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity var(--duration-slow) var(--ease-out),
+                  transform var(--duration-slow) var(--ease-out);
+    }
+    .reveal-stagger.is-visible > .reveal-child {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-stagger.is-visible > .reveal-child:nth-child(1) { transition-delay: 0s; }
+    .reveal-stagger.is-visible > .reveal-child:nth-child(2) { transition-delay: 0.1s; }
+    .reveal-stagger.is-visible > .reveal-child:nth-child(3) { transition-delay: 0.2s; }
+    .reveal-stagger.is-visible > .reveal-child:nth-child(4) { transition-delay: 0.3s; }
+
+    /* Respect prefers-reduced-motion */
+    @media (prefers-reduced-motion: reduce) {
+      .reveal,
+      .reveal-stagger > .reveal-child {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+      .marquee-track {
+        animation: none !important;
+      }
+      html {
+        scroll-behavior: auto;
+      }
+    }
+
+
+    /* =========================================================
+       BUTTONS
+       ========================================================= */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-xs);
+      font-family: 'Instrument Sans', sans-serif;
+      font-weight: 600;
+      font-size: var(--fs-small);
+      line-height: 1;
+      padding: 0.85rem 1.75rem;
+      border-radius: var(--radius-pill);
+      transition: background var(--duration-fast) var(--ease-out),
+                  color var(--duration-fast) var(--ease-out),
+                  box-shadow var(--duration-fast) var(--ease-out),
+                  transform var(--duration-fast) var(--ease-out);
+      white-space: nowrap;
+    }
+    .btn:active {
+      transform: scale(0.97);
+    }
+
+    .btn-primary {
+      background: var(--color-primary);
+      color: var(--color-white);
+    }
+    .btn-primary:hover {
+      background: var(--color-primary-hover);
+      box-shadow: 0 4px 16px rgba(40, 83, 251, 0.25);
+    }
+    .btn-primary:active {
+      background: var(--color-primary-active);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--color-text);
+      border: 1.5px solid var(--color-border);
+    }
+    .btn-ghost:hover {
+      border-color: var(--color-text);
+      background: rgba(26, 26, 26, 0.03);
+    }
+
+    .btn-sm {
+      padding: 0.6rem 1.25rem;
+      font-size: var(--fs-xs);
+    }
+
+
+    /* =========================================================
+       NAVIGATION
+       ========================================================= */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(248, 246, 237, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-border-light);
+      height: var(--nav-height);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    .nav-brand {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--color-text);
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: var(--space-lg);
+    }
+    .nav-links a {
+      font-size: var(--fs-small);
+      font-weight: 500;
+      color: var(--color-text-secondary);
+      transition: color var(--duration-fast);
+    }
+    .nav-links a:hover {
+      color: var(--color-text);
+    }
+
+    .nav-cta {
+      margin-left: var(--space-sm);
+    }
+
+    /* Mobile nav toggle */
+    .nav-toggle {
+      display: none;
+      width: 40px;
+      height: 40px;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 5px;
+      z-index: 1001;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--color-text);
+      border-radius: 2px;
+      transition: transform var(--duration-fast) var(--ease-out),
+                  opacity var(--duration-fast);
+    }
+    .nav-toggle[aria-expanded="true"] span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .nav-toggle[aria-expanded="true"] span:nth-child(2) {
+      opacity: 0;
+    }
+    .nav-toggle[aria-expanded="true"] span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* Mobile menu */
+    .nav-mobile-menu {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      .nav-cta-desktop {
+        display: none;
+      }
+      .nav-toggle {
+        display: flex;
+      }
+      .nav-mobile-menu {
+        display: none;
+        position: fixed;
+        top: var(--nav-height);
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--color-canvas);
+        z-index: 999;
+        padding: var(--space-lg) var(--container-padding);
+        flex-direction: column;
+        gap: var(--space-md);
+      }
+      .nav-mobile-menu.is-open {
+        display: flex;
+      }
+      .nav-mobile-menu a {
+        display: block;
+        font-size: 1.25rem;
+        font-weight: 500;
+        padding: var(--space-sm) 0;
+        color: var(--color-text);
+        border-bottom: 1px solid var(--color-border-light);
+      }
+      .nav-mobile-menu .btn {
+        margin-top: var(--space-sm);
+        text-align: center;
+      }
+    }
+
+
+    /* =========================================================
+       HERO
+       ========================================================= */
+    .hero {
+      padding-top: clamp(4rem, 8vw, 7rem);
+      padding-bottom: var(--space-lg);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Faint grain overlay */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero .container {
+      position: relative;
+      z-index: 1;
+      max-width: 1120px;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: clamp(0.72rem, 0.2vw + 0.68rem, 0.8125rem);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(17, 24, 39, 0.6);
+      margin-bottom: 24px;
+    }
+
+    .hero-headline {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: clamp(2.625rem, 5vw, 4.5rem);
+      font-weight: 500;
+      line-height: 1.08;
+      letter-spacing: -0.01em;
+      color: var(--color-text);
+      max-width: 720px;
+      margin: 0 auto var(--space-sm);
+    }
+    .hero-headline .accent {
+      display: inline-block;
+      font-style: italic;
+      font-size: clamp(2.875rem, 5.5vw, 5rem);
+      color: var(--color-primary);
+    }
+
+    .hero-subheadline {
+      font-size: clamp(1.05rem, 1vw + 0.7rem, 1.25rem);
+      color: var(--color-text-secondary);
+      max-width: 540px;
+      margin: 0 auto var(--space-lg);
+      line-height: 1.55;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: var(--space-lg);
+    }
+
+    .hero-cta {
+      display: inline-flex;
+    }
+
+    .hero-secondary-cta {
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: clamp(0.9375rem, 0.3vw + 0.85rem, 1rem);
+      font-weight: 500;
+      color: #111827;
+      text-decoration: none;
+      transition: color var(--duration-fast) ease;
+    }
+    .hero-secondary-cta:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+
+    /* =========================================================
+       LOGO MARQUEE
+       ========================================================= */
+    .marquee-section {
+      padding-bottom: var(--space-xl);
+    }
+    .marquee-label {
+      text-align: center;
+      font-size: var(--fs-xs);
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-text-tertiary);
+      margin-bottom: var(--space-md);
+    }
+
+    .marquee {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+    }
+    /* Gradient masks on edges */
+    .marquee::before,
+    .marquee::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 80px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .marquee::before {
+      left: 0;
+      background: linear-gradient(to right, var(--color-canvas), transparent);
+    }
+    .marquee::after {
+      right: 0;
+      background: linear-gradient(to left, var(--color-canvas), transparent);
+    }
+
+    .marquee-track {
+      display: flex;
+      align-items: center;
+      gap: clamp(2rem, 4vw, 3.5rem);
+      width: max-content;
+      animation: marquee-scroll 30s linear infinite;
+    }
+    .marquee:hover .marquee-track {
+      animation-play-state: paused;
+    }
+
+    @keyframes marquee-scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .marquee-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.6rem 1.4rem;
+      font-family: 'Instrument Sans', sans-serif;
+      font-weight: 600;
+      font-size: var(--fs-small);
+      color: var(--color-text-tertiary);
+      background: transparent;
+      border-radius: var(--radius-sm);
+      white-space: nowrap;
+      user-select: none;
+      height: auto;
+      flex-shrink: 0;
+    }
+    .marquee-logo img {
+      height: 44px;
+      width: auto;
+      max-width: 160px;
+      object-fit: contain;
+      opacity: 0.35;
+    }
+
+
+    /* =========================================================
+       SECTION DIVIDER
+       ========================================================= */
+    .section-divider {
+      border: none;
+      height: 1px;
+      background: var(--color-primary);
+      opacity: 0.25;
+      max-width: 60%;
+      margin: var(--space-lg) auto;
+    }
+
+
+    /* =========================================================
+       TESTIMONIALS RAIL
+       ========================================================= */
+    .testimonials {
+      background: var(--color-canvas);
+    }
+
+    .testimonials-rows {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(0.75rem, 1.5vw, 1.25rem);
+    }
+
+    .testimonials-rail {
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black 8%,
+        black 92%,
+        transparent 100%
+      );
+      mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black 8%,
+        black 92%,
+        transparent 100%
+      );
+    }
+
+    .testimonials-track {
+      display: flex;
+      align-items: flex-start;
+      gap: clamp(0.75rem, 1.5vw, 1.25rem);
+      width: max-content;
+      animation: testimonial-scroll-left 45s linear infinite;
+    }
+    .testimonials-track--reverse {
+      animation: testimonial-scroll-right 45s linear infinite;
+    }
+    .testimonials-rail:hover .testimonials-track {
+      animation-play-state: paused;
+    }
+
+    @keyframes testimonial-scroll-left {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @keyframes testimonial-scroll-right {
+      0% { transform: translateX(-50%); }
+      100% { transform: translateX(0); }
+    }
+
+    .testimonial-card {
+      flex-shrink: 0;
+      width: clamp(340px, 38vw, 480px);
+      display: flex;
+      flex-direction: column;
+      background: var(--color-white);
+      border-radius: 14px;
+      padding: clamp(1.75rem, 3vw, 2.25rem);
+      border: 1px solid rgba(17, 24, 39, 0.06);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      opacity: 0.9;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .testimonial-card:hover {
+      opacity: 1;
+      transform: translateY(-4px);
+    }
+
+    .testimonial-quote {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: clamp(1.1rem, 1.3vw + 0.45rem, 1.3rem);
+      font-weight: 400;
+      line-height: 1.4;
+      letter-spacing: -0.01em;
+      color: #111827;
+      max-width: 40ch;
+      margin-bottom: 18px;
+    }
+
+    /* Attribution row: headshot + name/title side by side */
+    .testimonial-attribution {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .testimonial-headshot {
+      flex-shrink: 0;
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+    /* Placeholder avatar when no image is provided */
+    .testimonial-avatar {
+      flex-shrink: 0;
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      background: var(--color-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.1rem;
+      color: var(--color-white);
+      user-select: none;
+    }
+
+    .testimonial-author {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+    .testimonial-name {
+      font-family: 'Instrument Sans', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--color-text);
+    }
+    .testimonial-role {
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 0.775rem;
+      color: rgba(17, 24, 39, 0.6);
+    }
+    .testimonial-company {
+      color: var(--color-text-secondary);
+    }
+
+    @media (max-width: 768px) {
+      .testimonial-card {
+        width: 80vw;
+        padding: clamp(1.25rem, 2.5vw, 1.75rem);
+      }
+      .testimonial-headshot,
+      .testimonial-avatar {
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        font-size: 0.95rem;
+      }
+    }
+
+
+    /* =========================================================
+       CASE STUDIES
+       ========================================================= */
+    .case-studies {
+      background: var(--color-canvas);
+    }
+
+    .case-studies-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-md);
+    }
+    @media (max-width: 900px) {
+      .case-studies-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+      }
+    }
+
+    .case-study-thumb {
+      width: calc(100% + clamp(3rem, 6vw, 4rem));
+      margin: calc(-1 * clamp(1.5rem, 3vw, 2rem)) calc(-1 * clamp(1.5rem, 3vw, 2rem)) clamp(1rem, 2vw, 1.25rem);
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      overflow: hidden;
+      position: relative;
+    }
+    .case-study-thumb img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+    .case-study-thumb::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 48px;
+      height: 48px;
+      background: rgba(0, 0, 0, 0.55);
+      border-radius: 50%;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpolygon points='9.5,7.5 16.5,12 9.5,16.5'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 24px;
+      pointer-events: none;
+      opacity: 0.85;
+      transition: opacity var(--duration-fast) var(--ease-out);
+    }
+    .case-study-card:hover .case-study-thumb::after {
+      opacity: 1;
+    }
+
+    .case-study-card {
+      display: flex;
+      flex-direction: column;
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border-light);
+      border-radius: var(--radius-lg);
+      padding: clamp(1.5rem, 3vw, 2rem);
+      transition: transform var(--duration-base) var(--ease-out),
+                  box-shadow var(--duration-base) var(--ease-out);
+      text-decoration: none;
+      color: inherit;
+    }
+    .case-study-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px var(--color-card-shadow-hover);
+    }
+
+    .case-study-industry {
+      display: inline-block;
+      font-size: var(--fs-xs);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--color-primary);
+      margin-bottom: var(--space-sm);
+    }
+
+    .case-study-title {
+      font-family: 'Instrument Serif', serif;
+      font-size: var(--fs-h3);
+      font-weight: 400;
+      line-height: 1.3;
+      margin-bottom: var(--space-xs);
+    }
+
+    .case-study-description {
+      font-size: var(--fs-small);
+      color: var(--color-text-secondary);
+      line-height: 1.5;
+      margin-bottom: var(--space-md);
+      flex-grow: 1;
+    }
+
+    .case-study-metrics {
+      display: flex;
+      gap: var(--space-md);
+      padding-top: var(--space-md);
+      border-top: 1px solid var(--color-border-light);
+      margin-bottom: var(--space-md);
+    }
+    .case-study-metric {
+      display: flex;
+      flex-direction: column;
+    }
+    .case-study-metric-value {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(1.5rem, 2vw + 0.5rem, 1.85rem);
+      font-weight: 400;
+      color: var(--color-primary);
+      line-height: 1.1;
+    }
+    .case-study-metric-label {
+      font-size: var(--fs-xs);
+      color: var(--color-text-tertiary);
+      margin-top: 0.2rem;
+    }
+
+    .case-study-founder {
+      font-size: var(--fs-xs);
+      color: var(--color-text-tertiary);
+      margin-bottom: var(--space-sm);
+    }
+    .case-study-founder strong {
+      color: var(--color-text-secondary);
+      font-weight: 600;
+    }
+
+    .case-study-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: var(--fs-small);
+      font-weight: 600;
+      color: var(--color-primary);
+      transition: gap var(--duration-fast) var(--ease-out);
+    }
+    .case-study-card:hover .case-study-link {
+      gap: 0.6rem;
+    }
+
+
+    /* =========================================================
+       HOW IT WORKS
+       ========================================================= */
+    .how-it-works {
+      background: var(--color-canvas);
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-md);
+      position: relative;
+    }
+
+    /* Connecting line on desktop */
+    .steps-grid::before {
+      content: '';
+      position: absolute;
+      top: 36px;
+      left: calc(12.5% + 12px);
+      right: calc(12.5% + 12px);
+      height: 2px;
+      background: var(--color-border);
+      z-index: 0;
+    }
+
+    @media (max-width: 900px) {
+      .steps-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-lg) var(--space-md);
+      }
+      .steps-grid::before {
+        display: none;
+      }
+    }
+    @media (max-width: 520px) {
+      .steps-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .step-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step-number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--color-primary);
+      color: var(--color-white);
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.2rem;
+      margin-bottom: var(--space-md);
+      position: relative;
+      z-index: 1;
+      flex-shrink: 0;
+    }
+
+    .step-title {
+      font-family: 'Instrument Serif', serif;
+      font-size: var(--fs-h4);
+      font-weight: 400;
+      margin-bottom: var(--space-xs);
+      line-height: 1.3;
+    }
+
+    .step-description {
+      font-size: var(--fs-small);
+      color: var(--color-text-secondary);
+      line-height: 1.55;
+      max-width: 260px;
+    }
+
+
+    /* =========================================================
+       FAQ ACCORDION
+       ========================================================= */
+    .faq {
+      background: var(--color-canvas);
+    }
+
+    .faq-list {
+      max-width: 740px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--color-border-light);
+    }
+    .faq-item:first-child {
+      border-top: 1px solid var(--color-border-light);
+    }
+
+    .faq-trigger {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: var(--space-md) 0;
+      text-align: left;
+      font-size: var(--fs-body);
+      font-weight: 500;
+      color: var(--color-text);
+      gap: var(--space-sm);
+      background: none;
+      cursor: pointer;
+    }
+    .faq-trigger:hover {
+      color: var(--color-primary);
+    }
+
+    .faq-icon {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      transition: transform var(--duration-base) var(--ease-out);
+    }
+    .faq-trigger[aria-expanded="true"] .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    .faq-panel {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height var(--duration-base) var(--ease-in-out);
+    }
+    .faq-panel-inner {
+      padding-bottom: var(--space-md);
+      font-size: var(--fs-small);
+      color: var(--color-text-secondary);
+      line-height: 1.65;
+      max-width: 620px;
+    }
+
+
+    /* =========================================================
+       FINAL CTA
+       ========================================================= */
+    .final-cta {
+      text-align: center;
+      background: var(--color-canvas);
+    }
+    .final-cta-inner {
+      background: var(--color-text);
+      border-radius: var(--radius-lg);
+      padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 4vw, 3rem);
+    }
+
+    .final-cta-headline {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: var(--fs-h2);
+      font-weight: 400;
+      color: var(--color-canvas);
+      line-height: 1.15;
+      max-width: 600px;
+      margin: 0 auto var(--space-sm);
+    }
+    .final-cta-headline em {
+      font-style: italic;
+      color: var(--color-primary);
+    }
+
+    .final-cta-sub {
+      font-size: var(--fs-body);
+      color: var(--color-text-tertiary);
+      max-width: 480px;
+      margin: 0 auto var(--space-lg);
+      line-height: 1.55;
+    }
+
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+    .footer {
+      padding: var(--space-lg) 0;
+      text-align: center;
+      font-size: var(--fs-xs);
+      color: var(--color-text-tertiary);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Skip link for accessibility -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ============================================
+       NAVIGATION
+       ============================================ -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="#" class="nav-brand" id="nav-brand">Catalyst</a>
+
+      <div class="nav-links" id="nav-links">
+        <a href="#testimonials">Testimonials</a>
+        <a href="#case-studies">Case Studies</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#faq">FAQ</a>
+      </div>
+
+      <a href="#" class="btn btn-primary btn-sm nav-cta nav-cta-desktop" id="nav-cta">Book a Call</a>
+
+      <!-- Mobile toggle -->
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-mobile" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="nav-mobile-menu" id="nav-mobile" role="menu">
+      <a href="#testimonials" role="menuitem">Testimonials</a>
+      <a href="#case-studies" role="menuitem">Case Studies</a>
+      <a href="#how-it-works" role="menuitem">How It Works</a>
+      <a href="#faq" role="menuitem">FAQ</a>
+      <a href="#" class="btn btn-primary" id="nav-mobile-cta">Book a Call</a>
+    </div>
+  </nav>
+
+
+  <!-- ============================================
+       MAIN CONTENT
+       ============================================ -->
+  <main id="main">
+
+    <!-- HERO -->
+    <section class="hero" aria-label="Hero">
+      <div class="container">
+        <div class="reveal">
+          <p class="hero-eyebrow">Trusted by 40+ B2B founders building category leaders</p>
+        </div>
+        <div class="reveal" style="transition-delay: 0.08s;">
+          <h1 class="hero-headline" id="hero-headline"></h1>
+        </div>
+        <div class="reveal" style="transition-delay: 0.16s;">
+          <p class="hero-subheadline" id="hero-subheadline"></p>
+        </div>
+        <div class="reveal" style="transition-delay: 0.24s;">
+          <div class="hero-cta-row">
+            <a href="#" class="btn btn-primary hero-cta" id="hero-cta">Book a Call</a>
+            <a href="#case-studies" class="hero-secondary-cta">View Case Studies →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOGO MARQUEE -->
+    <section class="marquee-section" aria-label="Trusted by leading companies">
+      <div class="marquee-label reveal">Trusted by forward-thinking teams</div>
+      <div class="marquee reveal" aria-hidden="true">
+        <div class="marquee-track" id="marquee-track">
+          <!-- Logos injected by JS (duplicated for seamless loop) -->
+        </div>
+      </div>
+    </section>
+
+    <!-- DIVIDER -->
+    <div class="container">
+      <hr class="section-divider" aria-hidden="true">
+    </div>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials section-padding" id="testimonials" aria-label="Client testimonials">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label">Testimonials</span>
+          <h2 class="section-heading">Hear it from our clients</h2>
+        </div>
+      </div>
+
+      <div class="testimonials-rows reveal">
+        <div class="testimonials-rail">
+          <div class="testimonials-track" id="testimonials-track-top">
+            <!-- Row 1: injected by JS -->
+          </div>
+        </div>
+        <div class="testimonials-rail">
+          <div class="testimonials-track testimonials-track--reverse" id="testimonials-track-bottom">
+            <!-- Row 2: injected by JS (scrolls opposite direction) -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- CASE STUDIES -->
+    <section class="case-studies section-padding" id="case-studies" aria-label="Case studies">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label">Case Studies</span>
+          <h2 class="section-heading">Customer Stories</h2>
+          <p class="section-subheading">Learn how we help clients build a presence and<br>generate pipeline from social.</p>
+        </div>
+
+        <div class="case-studies-grid reveal-stagger" id="case-studies-grid">
+          <!-- Cards injected by JS -->
+        </div>
+      </div>
+    </section>
+
+
+    <!-- HOW IT WORKS -->
+    <section class="how-it-works section-padding" id="how-it-works" aria-label="How it works">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label">How It Works</span>
+          <h2 class="section-heading">Four steps to incredible content</h2>
+          <p class="section-subheading">No black boxes. Our process is transparent, repeatable, and designed for scale.</p>
+        </div>
+
+        <div class="steps-grid reveal-stagger" id="steps-grid">
+          <!-- Steps injected by JS -->
+        </div>
+      </div>
+    </section>
+
+
+    <!-- FAQ -->
+    <section class="faq section-padding" id="faq" aria-label="Frequently asked questions">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label">FAQ</span>
+          <h2 class="section-heading">Questions we get asked most</h2>
+        </div>
+
+        <div class="faq-list reveal" id="faq-list" role="list">
+          <!-- FAQ items injected by JS -->
+        </div>
+      </div>
+    </section>
+
+
+    <!-- FINAL CTA -->
+    <section class="final-cta section-padding" aria-label="Call to action">
+      <div class="container">
+        <div class="final-cta-inner reveal">
+          <h2 class="final-cta-headline">Ready to build a pipeline that <em>compounds?</em></h2>
+          <p class="final-cta-sub">Let's talk about where you are today, where you want to be, and how we bridge the gap — in 30 minutes or less.</p>
+          <a href="#" class="btn btn-primary" id="final-cta">Book a Call</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p id="footer-text"></p>
+    </div>
+  </footer>
+
+
+  <!-- ============================================
+       JAVASCRIPT
+       ============================================ -->
+  <script>
+    /* ==========================================================
+       EDITABLE CONTENT DATA
+       ==========================================================
+       Replace the values below with your own content.
+       Images: replace `src` values with your file paths.
+       ========================================================== */
+
+    const LINKS = {
+      calendlyUrl: 'https://calendly.com/hattip/30min',
+      brandName: 'Hat Tip',
+    };
+
+    const HERO = {
+      headline: 'Founder Brand for <span class="accent">Startups</span>',
+      subheadline: 'Hat Tip builds founder and exec LinkedIn presences for ambitious B2B startups.',
+    };
+
+    // Logo marquee items
+    // If using images: set `src` to the image file path, `name` as alt text.
+    // If `src` is empty, the `name` text renders as a text pill instead.
+    const LOGOS = [
+      { name: 'Ammo',        src: 'Logo/Ammo.png' },
+      { name: 'Leadbird',    src: 'Logo/Leadbird.png' },
+      { name: 'Relentless',  src: 'Logo/Relentless.png' },
+      { name: 'Coconut',     src: 'Logo/coconut.png' },
+      { name: 'Northbeam',   src: 'Logo/northbeam.png' },
+      { name: 'NBD',         src: 'Logo/nbd.png' },
+      { name: 'Teamble',     src: 'Logo/teamble.png' },
+    ];
+
+    const TESTIMONIALS = [
+      {
+        quote: 'The Hat Tip team are proactive, quality-obsessed partners. Christian is a thoughtful strategist that brings sharp, data-driven storytelling and amplification ideas that elevate impact without sacrificing brand tone.',
+        name: 'Katrina Uyan',
+        title: 'Chief of Staff',
+        company: 'Northbeam',
+        headshot: 'headshots/Katrina Uyan.jpeg',
+      },
+      {
+        quote: "I feel like you've done a really great job of capturing my tone of voice and writing in a way that feels authentic. ~80% of our pipeline comes from LinkedIn. I'd 100% recommend Hat Tip.",
+        name: 'Eli Rubel',
+        title: 'Founder',
+        company: 'Profit Labs',
+        headshot: 'headshots/Eli Rubel.jpeg',
+      },
+      {
+        quote: "Enhancing my Founder brand wasn't something I was doing. They helped me find my voice. The experience was fantastic. Highly recommend.",
+        name: 'Erbil Yaman',
+        title: 'Founder',
+        company: 'Teamble',
+        headshot: 'headshots/Erbil Yaman.png',
+      },
+      {
+        quote: 'The experience was fantastic. Our impressions did very well (200% increase). I would come back in a heartbeat.',
+        name: 'Tyler Leber',
+        title: 'Co-Founder',
+        company: 'Coconut',
+        headshot: 'headshots/Tyler Leber.jpeg',
+      },
+      {
+        quote: 'Hat Tip helped me find my voice on social. They ideate and create content that sounds like me, while driving awareness and leads our agency. Strongly recommend!',
+        name: 'Dennis Onalaja',
+        title: 'Owner',
+        company: 'Ammo Studio',
+        headshot: 'headshots/Dennis Onalaja.png',
+      },
+      {
+        quote: 'Hat Tip was an incredible partner in helping me find my voice across social media. Their ability to probe and ask great questions, paired with their engaging style of writing allowed me to hand off much of my posting, while still feeling confident that my voice was properly captured and authentic.',
+        name: 'Dan Gray',
+        title: 'Co-Founder',
+        company: 'Vendry',
+        headshot: 'headshots/Dan Gray.png',
+      },
+      {
+        quote: "We love collaborating with Hat Tip on client writing work for our agency arm. You get high-quality content with fast turnaround times\u2026can't ask for much more than that.",
+        name: 'Simran Sandhu',
+        title: 'Director of Emerging Platforms',
+        company: 'Morning Brew',
+        headshot: 'headshots/Simran Sandhu.jpeg',
+      },
+      {
+        quote: 'Hat Tip has easily generated over 10,000,000 impressions for me across Twitter & LinkedIn. This has booked us hundreds of inbound demos and made me a "thought leader" in my space.',
+        name: 'Nick Abraham',
+        title: 'Founder',
+        company: 'Leadbird',
+        headshot: 'headshots/Nick Abraham.webp',
+      },
+      {
+        quote: 'Christian and Hat Tip have been fantastic to work with. They understand copywriting and content writing. And most importantly, the content has driven tons of views and clients for us.',
+        name: 'Matt McGarry',
+        title: 'Founder',
+        company: 'Growletter',
+        headshot: 'headshots/Mattt McGarry.jpeg',
+      },
+      {
+        quote: "Hat Tip's got us 1MN+ impressions. They're terrific. I say this as someone who has hired 100+ people and who runs a company that gets world class leaders their next roles, so I get a lot of exposure to great talent.",
+        name: 'Kareem Abukhadra',
+        title: 'Founder',
+        company: 'Relentless',
+        headshot: 'headshots/Kareem Abukhadra.jpeg',
+      },
+      {
+        quote: 'We leveraged Hat Tip to write organic social posts and blog articles for our marketing agency. We were extremely impressed with the quality of their work and professionalism. Highly recommend working with them!',
+        name: 'Trisha Marks',
+        title: 'Digital Marketing Manager',
+        company: 'ProperExpression',
+        headshot: 'headshots/Trisha Marks.jpeg',
+      },
+    ];
+
+    const CASE_STUDIES = [
+      {
+        title: 'How Leadbird Booked 700+ Demos From Social',
+        description: 'Premier lead generation agency goes from zero social presence to 700+ demos and 11M+ impressions through founder-led content.',
+        founder: 'Nick Abraham',
+        founderTitle: 'Founder, Leadbird',
+        metric1: { value: '700+', label: 'Demos booked' },
+        metric2: { value: '11M', label: 'X impressions' },
+        industry: 'Lead Generation',
+        href: 'case-study-nick.html',
+        thumbUrl: 'https://cdn.loom.com/sessions/thumbnails/b80f00886e3b4a7a80541420918f5227-20d4312aa66562c8.jpg',
+      },
+      {
+        title: 'How Profit Labs Generated 14 Calls in 24 Hours',
+        description: 'Agency founder launches new venture with 14 qualified sales calls in the first 24 hours — now 80% of pipeline comes from LinkedIn.',
+        founder: 'Eli Rubel',
+        founderTitle: 'Founder, Profit Labs',
+        metric1: { value: '14', label: 'Calls in 24 hours' },
+        metric2: { value: '80%', label: 'Pipeline from LinkedIn' },
+        industry: 'Agency Operations',
+        href: 'case-study-profitlabs.html',
+        thumbUrl: 'https://cdn.loom.com/sessions/thumbnails/f414c450ec11426397bd185360725842-491a47928a1df80d.jpg',
+      },
+      {
+        title: 'How Hat Tip Drove $65K Revenue in 60 Days for Coconut',
+        description: 'Staffing platform co-founder generates $65K in attributable revenue and 360K impressions in just 4 months of founder-led content.',
+        founder: 'Tyler Leber',
+        founderTitle: 'Co-Founder, Coconut',
+        metric1: { value: '$65K', label: 'Revenue in 60 days' },
+        metric2: { value: '360K', label: 'Impressions' },
+        industry: 'Staffing Platform',
+        href: 'case-study-tyler.html',
+        thumbUrl: 'https://cdn.loom.com/sessions/thumbnails/bc300ec390cb41f680657d8d7244c218-eee1e8d44f6a5419.jpg',
+      },
+      {
+        title: '+12,500 Followers and Dozens of Closed Clients',
+        description: 'Media company founder grows from 500 to 13,000+ LinkedIn followers while building a 100% inbound client acquisition engine.',
+        founder: 'Matt McGarry',
+        founderTitle: 'Founder, Growletter',
+        metric1: { value: '+12.5K', label: 'Followers gained' },
+        metric2: { value: '100%', label: 'Inbound acquisition' },
+        industry: 'Media & Creator',
+        href: 'case-study-matt.html',
+        thumbUrl: 'https://cdn.loom.com/sessions/thumbnails/79ba7c42bf7f4dda9ff4e09de76351df-7de76862265a6b06.jpg',
+      },
+      {
+        title: 'How Ammo Studio Drives 20,000 Impressions/Week',
+        description: 'High-end Webflow agency goes from inactive LinkedIn to 152K impressions and 13 inbound leads in just 3 months.',
+        founder: 'Dennis Onalaja',
+        founderTitle: 'Founder, Ammo Studio',
+        metric1: { value: '152K', label: 'LinkedIn impressions' },
+        metric2: { value: '13', label: 'Inbound leads' },
+        industry: 'Webflow Agency',
+        href: 'case-study-ammo.html',
+      },
+      {
+        title: 'Teamble Books 3 Meetings in First 7 Days',
+        description: 'People success platform books 3 qualified meetings in the first week with just 2 posts — spending only 30 minutes a week.',
+        founder: 'Erbil Yaman',
+        founderTitle: 'CEO, Teamble',
+        metric1: { value: '3', label: 'Meetings in 7 days' },
+        metric2: { value: '90K', label: 'Impressions in 90 days' },
+        industry: 'People Success / HR Tech',
+        href: 'case-study-teamble.html',
+      },
+    ];
+
+    const STEPS = [
+      {
+        title: 'Step 1',
+        description: 'At onboarding, you tell us everything we need to know about you and your company.',
+      },
+      {
+        title: 'Step 2',
+        description: 'After that, you join a bi-weekly content interview. Here, we ask a set of client-specific questions about your personal journey and story.',
+      },
+      {
+        title: 'Step 3',
+        description: 'Then, Hat Tip crafts social posts based on your answers, and sends them to you for review.',
+      },
+      {
+        title: 'Step 4',
+        description: 'After approval, we post on a pre-set cadence, and engage with your community to ensure maximum reach.',
+      },
+    ];
+
+    const FAQS = [
+      {
+        question: 'How do I know this is for me?',
+        answer: 'If you\u2019re a B2B founder or executive trying to drive leads from LinkedIn, but don\u2019t have the time or expertise to do so, you\u2019re in the right spot.',
+      },
+      {
+        question: 'How do you capture my voice?',
+        answer: 'At onboarding, you\u2019ll fill out an extensive form that asks about your voice, writing style, tone, etc. We\u2019ll take this into account while drafting social posts from the transcripts of your content interviews. Then, before posting, you will have a chance to request edits to ensure content sounds exactly like you\u2019d write it.',
+      },
+      {
+        question: 'How much time will this take on my end?',
+        answer: '45 minutes bi-weekly for content calls, and ~15 minutes weekly to review content.',
+      },
+      {
+        question: 'Do I have to commit to a long-term contract?',
+        answer: 'Nope! Contracts are month-to-month. You can pause or cancel anytime.',
+      },
+    ];
+
+
+    /* ==========================================================
+       DOM RENDERING
+       ========================================================== */
+
+    // --- Nav & CTAs ---
+    document.getElementById('nav-brand').textContent = LINKS.brandName;
+    document.getElementById('nav-cta').href = LINKS.calendlyUrl;
+    document.getElementById('nav-mobile-cta').href = LINKS.calendlyUrl;
+    document.getElementById('hero-cta').href = LINKS.calendlyUrl;
+    document.getElementById('final-cta').href = LINKS.calendlyUrl;
+    document.getElementById('footer-text').textContent =
+      '\u00a9 ' + new Date().getFullYear() + ' ' + LINKS.brandName + '. All rights reserved.';
+
+    // --- Hero ---
+    document.getElementById('hero-headline').innerHTML = HERO.headline;
+    document.getElementById('hero-subheadline').textContent = HERO.subheadline;
+
+    // --- Logo Marquee (duplicated for seamless loop) ---
+    (function renderMarquee() {
+      var track = document.getElementById('marquee-track');
+      var logoHTML = LOGOS.map(function(logo) {
+        if (logo.src) {
+          return '<div class="marquee-logo"><img src="' + logo.src + '" alt="' + logo.name + '" loading="lazy"></div>';
+        }
+        return '<div class="marquee-logo">' + logo.name + '</div>';
+      }).join('');
+      track.innerHTML = logoHTML + logoHTML;
+    })();
+
+    // --- Testimonials Rails (two rows, opposite scroll directions) ---
+    (function renderTestimonials() {
+      var trackTop = document.getElementById('testimonials-track-top');
+      var trackBottom = document.getElementById('testimonials-track-bottom');
+
+      function buildCard(t) {
+        var avatarHTML;
+        if (t.headshot) {
+          avatarHTML = '<img class="testimonial-headshot" src="' + t.headshot + '" alt="' + t.name + '" loading="lazy">';
+        } else {
+          var initials = t.name.split(' ').map(function(n) { return n[0]; }).join('');
+          avatarHTML = '<div class="testimonial-avatar" aria-hidden="true">' + initials + '</div>';
+        }
+
+        return '<article class="testimonial-card">' +
+          '<blockquote class="testimonial-quote">' + t.quote + '</blockquote>' +
+          '<div class="testimonial-attribution">' +
+            avatarHTML +
+            '<div class="testimonial-author">' +
+              '<span class="testimonial-name">' + t.name + '</span>' +
+              '<span class="testimonial-role">' +
+                (t.title ? t.title + ', ' : '') +
+                '<span class="testimonial-company">' + t.company + '</span>' +
+              '</span>' +
+            '</div>' +
+          '</div>' +
+        '</article>';
+      }
+
+      // Split testimonials evenly across two rows
+      var mid = Math.ceil(TESTIMONIALS.length / 2);
+      var topCards = TESTIMONIALS.slice(0, mid).map(buildCard).join('');
+      var bottomCards = TESTIMONIALS.slice(mid).map(buildCard).join('');
+
+      // Duplicate each for seamless infinite loop
+      trackTop.innerHTML = topCards + topCards;
+      trackBottom.innerHTML = bottomCards + bottomCards;
+    })();
+
+    // --- Case Studies ---
+    (function renderCaseStudies() {
+      var grid = document.getElementById('case-studies-grid');
+      grid.innerHTML = CASE_STUDIES.map(function(cs) {
+        var thumb = cs.thumbUrl
+          ? '<div class="case-study-thumb"><img src="' + cs.thumbUrl + '" alt="' + cs.founder + ' interview" loading="lazy"></div>'
+          : '';
+        return '<a href="' + cs.href + '" class="case-study-card reveal-child">' +
+          thumb +
+          '<span class="case-study-industry">' + cs.industry + '</span>' +
+          '<h3 class="case-study-title">' + cs.title + '</h3>' +
+          '<p class="case-study-founder"><strong>' + cs.founder + '</strong> · ' + cs.founderTitle + '</p>' +
+          '<p class="case-study-description">' + cs.description + '</p>' +
+          '<div class="case-study-metrics">' +
+            '<div class="case-study-metric">' +
+              '<span class="case-study-metric-value">' + cs.metric1.value + '</span>' +
+              '<span class="case-study-metric-label">' + cs.metric1.label + '</span>' +
+            '</div>' +
+            '<div class="case-study-metric">' +
+              '<span class="case-study-metric-value">' + cs.metric2.value + '</span>' +
+              '<span class="case-study-metric-label">' + cs.metric2.label + '</span>' +
+            '</div>' +
+          '</div>' +
+          '<span class="case-study-link">Read Full Story <span aria-hidden="true">\u2192</span></span>' +
+        '</a>';
+      }).join('');
+    })();
+
+    // --- How It Works Steps ---
+    (function renderSteps() {
+      var grid = document.getElementById('steps-grid');
+      grid.innerHTML = STEPS.map(function(s, i) {
+        return '<div class="step-card reveal-child">' +
+          '<div class="step-number">' + (i + 1) + '</div>' +
+          '<h3 class="step-title">' + s.title + '</h3>' +
+          '<p class="step-description">' + s.description + '</p>' +
+        '</div>';
+      }).join('');
+    })();
+
+    // --- FAQ ---
+    (function renderFAQ() {
+      var list = document.getElementById('faq-list');
+      list.innerHTML = FAQS.map(function(f, i) {
+        return '<div class="faq-item" role="listitem">' +
+          '<button class="faq-trigger"' +
+            ' aria-expanded="false"' +
+            ' aria-controls="faq-panel-' + i + '"' +
+            ' id="faq-btn-' + i + '">' +
+            '<span>' + f.question + '</span>' +
+            '<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+              '<line x1="12" y1="5" x2="12" y2="19"></line>' +
+              '<line x1="5" y1="12" x2="19" y2="12"></line>' +
+            '</svg>' +
+          '</button>' +
+          '<div class="faq-panel" id="faq-panel-' + i + '" role="region" aria-labelledby="faq-btn-' + i + '">' +
+            '<div class="faq-panel-inner">' + f.answer + '</div>' +
+          '</div>' +
+        '</div>';
+      }).join('');
+    })();
+
+
+    /* ==========================================================
+       INTERACTIVE BEHAVIORS
+       ========================================================== */
+
+    // --- Mobile Nav Toggle ---
+    (function initMobileNav() {
+      var toggle = document.getElementById('nav-toggle');
+      var menu = document.getElementById('nav-mobile');
+      var links = menu.querySelectorAll('a');
+
+      function closeMenu() {
+        toggle.setAttribute('aria-expanded', 'false');
+        menu.classList.remove('is-open');
+        document.body.style.overflow = '';
+      }
+
+      toggle.addEventListener('click', function() {
+        var isOpen = toggle.getAttribute('aria-expanded') === 'true';
+        if (isOpen) {
+          closeMenu();
+        } else {
+          toggle.setAttribute('aria-expanded', 'true');
+          menu.classList.add('is-open');
+          document.body.style.overflow = 'hidden';
+        }
+      });
+
+      for (var i = 0; i < links.length; i++) {
+        links[i].addEventListener('click', closeMenu);
+      }
+    })();
+
+
+
+
+    // --- FAQ Accordion ---
+    (function initFAQ() {
+      var triggers = document.querySelectorAll('.faq-trigger');
+
+      for (var i = 0; i < triggers.length; i++) {
+        triggers[i].addEventListener('click', function() {
+          var isExpanded = this.getAttribute('aria-expanded') === 'true';
+          var panel = document.getElementById(this.getAttribute('aria-controls'));
+
+          // Close all others (single-open behavior)
+          for (var j = 0; j < triggers.length; j++) {
+            if (triggers[j] !== this) {
+              triggers[j].setAttribute('aria-expanded', 'false');
+              var otherPanel = document.getElementById(triggers[j].getAttribute('aria-controls'));
+              otherPanel.style.maxHeight = '0';
+            }
+          }
+
+          // Toggle current
+          if (isExpanded) {
+            this.setAttribute('aria-expanded', 'false');
+            panel.style.maxHeight = '0';
+          } else {
+            this.setAttribute('aria-expanded', 'true');
+            panel.style.maxHeight = panel.scrollHeight + 'px';
+          }
+        });
+      }
+    })();
+
+
+    // --- Scroll Reveal (IntersectionObserver) ---
+    (function initReveal() {
+      var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var elements = document.querySelectorAll('.reveal, .reveal-stagger');
+
+      if (prefersReduced) {
+        for (var i = 0; i < elements.length; i++) {
+          elements[i].classList.add('is-visible');
+        }
+        return;
+      }
+
+      var observer = new IntersectionObserver(function(entries) {
+        for (var i = 0; i < entries.length; i++) {
+          if (entries[i].isIntersecting) {
+            entries[i].target.classList.add('is-visible');
+            observer.unobserve(entries[i].target);
+          }
+        }
+      }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -40px 0px',
+      });
+
+      for (var i = 0; i < elements.length; i++) {
+        observer.observe(elements[i]);
+      }
+    })();
+
+  </script>
+</body>
+</html>

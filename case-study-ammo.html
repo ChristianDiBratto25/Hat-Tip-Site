@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hat Tip — Ammo Studio Case Study</title>
+  <meta name="description" content="How Hat Tip helped Ammo Studio drive 20,000 impressions per week and generate inbound leads through founder-led LinkedIn content.">
+  <link rel="icon" type="image/png" href="Logo_Blue.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+  <style>
+    /* =========================================================
+       CSS CUSTOM PROPERTIES (matches main site)
+       ========================================================= */
+    :root {
+      --color-primary: #2853fb;
+      --color-primary-hover: #1a3fd4;
+      --color-primary-active: #1533b0;
+      --color-canvas: #f8f6ed;
+      --color-canvas-alt: #f1efe4;
+
+      --color-text: #1a1a1a;
+      --color-text-secondary: #5a5a52;
+      --color-text-tertiary: #8a8a80;
+      --color-border: #e2e0d5;
+      --color-border-light: #eceadf;
+      --color-white: #ffffff;
+      --color-card-bg: #ffffff;
+      --color-card-shadow: rgba(26, 26, 26, 0.06);
+
+      --fs-display: clamp(2.75rem, 5vw + 0.5rem, 4rem);
+      --fs-h2: clamp(1.75rem, 3vw + 0.25rem, 2.25rem);
+      --fs-h3: clamp(1.25rem, 1.5vw + 0.5rem, 1.5rem);
+      --fs-body: clamp(1.05rem, 0.5vw + 0.9rem, 1.2rem);
+      --fs-small: clamp(0.85rem, 0.3vw + 0.75rem, 0.95rem);
+      --fs-xs: 0.8rem;
+
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 1.5rem;
+      --space-lg: 2.5rem;
+      --space-xl: 4rem;
+      --space-2xl: 6rem;
+      --space-3xl: 8rem;
+
+      --container-max: 1160px;
+      --container-padding: clamp(1.25rem, 3vw, 2.5rem);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-pill: 100px;
+
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --duration-fast: 0.2s;
+      --duration-base: 0.35s;
+      --duration-slow: 0.6s;
+    }
+
+
+    /* =========================================================
+       RESET & BASE
+       ========================================================= */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: 'Instrument Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: var(--fs-body);
+      line-height: 1.7;
+      color: var(--color-text);
+      background-color: var(--color-canvas);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+
+    .container {
+      width: 100%;
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding-left: var(--container-padding);
+      padding-right: var(--container-padding);
+    }
+
+    .container--narrow {
+      max-width: 780px;
+    }
+
+
+    /* =========================================================
+       NAVIGATION (minimal back-link)
+       ========================================================= */
+    .cs-nav {
+      padding: var(--space-md) 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--color-canvas);
+      border-bottom: 1px solid var(--color-border-light);
+    }
+    .cs-nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .cs-nav-brand {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.35rem;
+      text-decoration: none;
+      color: var(--color-text);
+    }
+    .cs-nav-back {
+      font-size: var(--fs-small);
+      font-weight: 500;
+      text-decoration: none;
+      color: var(--color-text-secondary);
+      transition: color var(--duration-fast) ease;
+    }
+    .cs-nav-back:hover {
+      color: var(--color-text);
+    }
+
+
+    /* =========================================================
+       HERO — 2-COLUMN VIDEO-FIRST
+       ========================================================= */
+    .cs-hero {
+      padding: clamp(5rem, 10vw, 8rem) 0 clamp(4rem, 8vw, 6rem);
+    }
+
+    .cs-hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(3rem, 5vw, 5rem);
+      align-items: center;
+    }
+
+    .cs-hero-grid--single {
+      grid-template-columns: 1fr;
+      max-width: 680px;
+    }
+
+    .cs-hero-eyebrow {
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: var(--fs-xs);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-primary);
+      margin-bottom: var(--space-md);
+    }
+
+    .cs-hero-headline {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: var(--fs-display);
+      font-weight: 600;
+      line-height: 1.1;
+      letter-spacing: -0.015em;
+      color: var(--color-text);
+      margin-bottom: var(--space-md);
+    }
+
+    .cs-hero-summary {
+      font-size: var(--fs-body);
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+      max-width: 480px;
+      margin-bottom: var(--space-lg);
+    }
+
+    .cs-hero-logo img {
+      height: 28px;
+      width: auto;
+      opacity: 0.5;
+    }
+
+    .cs-hero-video {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08), 0 4px 16px rgba(0, 0, 0, 0.04);
+      background: #000;
+      aspect-ratio: 16 / 10;
+    }
+    .cs-hero-video iframe,
+    .cs-hero-video video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border: none;
+    }
+    .cs-hero-video-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+      color: rgba(255,255,255,0.5);
+      font-size: var(--fs-small);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 900px) {
+      .cs-hero-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-xl);
+      }
+      .cs-hero-video {
+        order: -1;
+      }
+    }
+
+
+    /* =========================================================
+       KPI SECTION
+       ========================================================= */
+    .cs-kpis {
+      padding: clamp(3rem, 6vw, 5rem) 0;
+      border-top: 1px solid var(--color-border-light);
+      border-bottom: 1px solid var(--color-border-light);
+    }
+
+    .cs-kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-md);
+    }
+
+    .cs-kpi-card {
+      text-align: center;
+      padding: clamp(1.5rem, 3vw, 2.5rem) var(--space-sm);
+    }
+
+    .cs-kpi-value {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: clamp(2.5rem, 5vw, 3.75rem);
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      color: var(--color-text);
+      margin-bottom: var(--space-xs);
+    }
+
+    .cs-kpi-label {
+      font-size: var(--fs-small);
+      color: var(--color-text-tertiary);
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    /* Subtle divider between KPI cards */
+    .cs-kpi-card + .cs-kpi-card {
+      border-left: 1px solid var(--color-border-light);
+    }
+
+    @media (max-width: 768px) {
+      .cs-kpi-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0;
+      }
+      .cs-kpi-card + .cs-kpi-card {
+        border-left: none;
+      }
+      .cs-kpi-card {
+        border-bottom: 1px solid var(--color-border-light);
+      }
+      .cs-kpi-card:nth-child(odd) {
+        border-right: 1px solid var(--color-border-light);
+      }
+      .cs-kpi-card:nth-last-child(-n+2) {
+        border-bottom: none;
+      }
+    }
+
+
+    /* =========================================================
+       CLIENT SNAPSHOT + CONTEXT (2-Column)
+       ========================================================= */
+    .cs-context {
+      padding: clamp(5rem, 10vw, 8rem) 0;
+    }
+
+    .cs-context-grid {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: clamp(3rem, 5vw, 5rem);
+      align-items: start;
+    }
+
+    .cs-snapshot {
+      position: sticky;
+      top: calc(72px + var(--space-lg));
+      background: var(--color-white);
+      border-radius: var(--radius-lg);
+      padding: clamp(1.5rem, 3vw, 2rem);
+      border: 1px solid var(--color-border-light);
+    }
+
+    .cs-snapshot-title {
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: var(--fs-xs);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-text-tertiary);
+      margin-bottom: var(--space-md);
+      padding-bottom: var(--space-sm);
+      border-bottom: 1px solid var(--color-border-light);
+    }
+
+    .cs-snapshot-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--color-border-light);
+      font-size: var(--fs-small);
+    }
+    .cs-snapshot-row:last-child {
+      border-bottom: none;
+    }
+
+    .cs-snapshot-key {
+      color: var(--color-text-tertiary);
+      font-weight: 500;
+    }
+    .cs-snapshot-val {
+      color: var(--color-text);
+      font-weight: 600;
+      text-align: right;
+    }
+
+    .cs-context-body h2 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: var(--fs-h2);
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      color: var(--color-text);
+      margin-bottom: var(--space-md);
+    }
+
+    .cs-context-body p {
+      color: var(--color-text-secondary);
+      line-height: 1.75;
+      margin-bottom: var(--space-md);
+      max-width: 620px;
+    }
+
+    @media (max-width: 900px) {
+      .cs-context-grid {
+        grid-template-columns: 1fr;
+      }
+      .cs-snapshot {
+        position: static;
+      }
+    }
+
+
+    /* =========================================================
+       SECTION SHARED STYLES
+       ========================================================= */
+    .cs-section {
+      padding: clamp(5rem, 10vw, 8rem) 0;
+    }
+
+    .cs-section--alt {
+      background: var(--color-white);
+    }
+
+    .cs-section-eyebrow {
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: var(--fs-xs);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-primary);
+      margin-bottom: var(--space-sm);
+    }
+
+    .cs-section-heading {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: var(--fs-h2);
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      color: var(--color-text);
+      margin-bottom: var(--space-lg);
+    }
+
+    .cs-body-text {
+      color: var(--color-text-secondary);
+      line-height: 1.75;
+      max-width: 680px;
+    }
+
+    .cs-body-text + .cs-body-text {
+      margin-top: var(--space-md);
+    }
+
+
+    /* =========================================================
+       CHALLENGE — PROBLEM GRID + PULL QUOTE
+       ========================================================= */
+    .cs-problem-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-md);
+      margin-top: var(--space-xl);
+    }
+
+    .cs-problem-card {
+      padding: clamp(1.5rem, 2.5vw, 2rem);
+      background: var(--color-canvas);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border-light);
+    }
+
+    .cs-problem-card h4 {
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: var(--fs-h3);
+      font-weight: 600;
+      color: var(--color-text);
+      margin-bottom: var(--space-xs);
+    }
+
+    .cs-problem-card p {
+      font-size: var(--fs-small);
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+    }
+
+    .cs-pull-quote {
+      margin: clamp(3rem, 6vw, 5rem) 0;
+      padding: clamp(2rem, 4vw, 3.5rem);
+      background: var(--color-canvas-alt);
+      border-radius: var(--radius-lg);
+      border-left: 3px solid var(--color-primary);
+    }
+
+    .cs-pull-quote blockquote {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: clamp(1.25rem, 2vw + 0.5rem, 1.75rem);
+      font-weight: 400;
+      line-height: 1.4;
+      color: var(--color-text);
+      font-style: italic;
+    }
+
+    .cs-pull-quote cite {
+      display: block;
+      margin-top: var(--space-md);
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: var(--fs-small);
+      font-style: normal;
+      font-weight: 600;
+      color: var(--color-text-tertiary);
+    }
+
+    @media (max-width: 768px) {
+      .cs-problem-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+
+    /* =========================================================
+       SOLUTION — WORKFLOW MODULES
+       ========================================================= */
+    .cs-workflow-modules {
+      margin-top: var(--space-lg);
+    }
+
+    .cs-workflow-module {
+      padding: clamp(2rem, 4vw, 3rem) 0;
+      border-bottom: 1px solid var(--color-border-light);
+    }
+    .cs-workflow-module:first-child {
+      padding-top: 0;
+    }
+    .cs-workflow-module:last-child {
+      border-bottom: none;
+    }
+
+    .cs-workflow-module h3 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: var(--fs-h3);
+      font-weight: 600;
+      color: var(--color-text);
+      margin-bottom: var(--space-sm);
+    }
+
+    .cs-workflow-module p {
+      color: var(--color-text-secondary);
+      line-height: 1.75;
+      max-width: 640px;
+    }
+
+
+    /* =========================================================
+       HIGHLIGHT MOMENT — DRAMATIC STAT
+       ========================================================= */
+    .cs-highlight {
+      padding: clamp(5rem, 12vw, 10rem) 0;
+      text-align: center;
+      background: var(--color-white);
+      position: relative;
+    }
+
+    .cs-highlight-stat {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: clamp(3.5rem, 8vw + 1rem, 7rem);
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      color: var(--color-text);
+      margin-bottom: var(--space-sm);
+    }
+
+    .cs-highlight-context {
+      font-size: clamp(1.1rem, 1.5vw + 0.5rem, 1.35rem);
+      color: var(--color-text-secondary);
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+
+    /* =========================================================
+       ONGOING RESULTS GRID
+       ========================================================= */
+    .cs-results-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-md);
+      margin-top: var(--space-xl);
+    }
+
+    .cs-result-card {
+      padding: clamp(1.5rem, 3vw, 2.5rem);
+      background: var(--color-white);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border-light);
+      text-align: center;
+    }
+
+    .cs-result-value {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: clamp(2rem, 3.5vw, 2.75rem);
+      font-weight: 400;
+      line-height: 1;
+      color: var(--color-text);
+      margin-bottom: var(--space-xs);
+    }
+
+    .cs-result-label {
+      font-size: var(--fs-small);
+      color: var(--color-text-tertiary);
+      font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+      .cs-results-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+
+    /* =========================================================
+       TESTIMONIAL FEATURE
+       ========================================================= */
+    .cs-testimonial {
+      padding: clamp(5rem, 10vw, 8rem) 0;
+      background: var(--color-canvas-alt);
+    }
+
+    .cs-testimonial-inner {
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .cs-testimonial blockquote {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: clamp(1.5rem, 3vw + 0.5rem, 2.35rem);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.4;
+      color: var(--color-text);
+      margin-bottom: var(--space-xl);
+    }
+
+    .cs-testimonial-attribution {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-md);
+    }
+
+    .cs-testimonial-photo {
+      width: 88px;
+      height: 88px;
+      border-radius: var(--radius-lg);
+      object-fit: cover;
+    }
+
+    .cs-testimonial-meta {
+      text-align: left;
+    }
+    .cs-testimonial-name {
+      font-family: 'Instrument Sans', sans-serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: var(--color-text);
+    }
+    .cs-testimonial-title {
+      font-size: var(--fs-small);
+      color: var(--color-text-tertiary);
+    }
+
+
+    /* =========================================================
+       CTA SECTION
+       ========================================================= */
+    .cs-cta {
+      padding: clamp(5rem, 10vw, 8rem) 0;
+      text-align: center;
+    }
+
+    .cs-cta-heading {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: var(--fs-h2);
+      font-weight: 600;
+      line-height: 1.2;
+      color: var(--color-text);
+      margin-bottom: var(--space-sm);
+    }
+
+    .cs-cta-sub {
+      font-size: var(--fs-body);
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-lg);
+      max-width: 440px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-xs);
+      font-family: 'Instrument Sans', sans-serif;
+      font-weight: 600;
+      font-size: var(--fs-small);
+      line-height: 1;
+      padding: 0.85rem 1.75rem;
+      border-radius: var(--radius-pill);
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background var(--duration-fast) var(--ease-out),
+                  box-shadow var(--duration-fast) var(--ease-out),
+                  transform var(--duration-fast) var(--ease-out);
+      white-space: nowrap;
+    }
+    .btn:active { transform: scale(0.97); }
+
+    .btn-primary {
+      background: var(--color-primary);
+      color: var(--color-white);
+    }
+    .btn-primary:hover {
+      background: var(--color-primary-hover);
+      box-shadow: 0 4px 16px rgba(40, 83, 251, 0.25);
+    }
+
+
+    /* =========================================================
+       RELATED CASE STUDIES
+       ========================================================= */
+    .cs-related {
+      padding: clamp(4rem, 8vw, 6rem) 0;
+      border-top: 1px solid var(--color-border-light);
+    }
+
+    .cs-related-heading {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: var(--fs-h2);
+      font-weight: 400;
+      text-align: center;
+      margin-bottom: var(--space-xl);
+    }
+
+    .cs-related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-md);
+    }
+
+    .cs-related-card {
+      background: var(--color-white);
+      border-radius: var(--radius-lg);
+      padding: clamp(1.5rem, 3vw, 2rem);
+      border: 1px solid var(--color-border-light);
+      text-decoration: none;
+      transition: box-shadow var(--duration-base) var(--ease-out),
+                  transform var(--duration-base) var(--ease-out);
+    }
+    .cs-related-card:hover {
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+      transform: translateY(-2px);
+    }
+
+    .cs-related-industry {
+      font-size: var(--fs-xs);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--color-text-tertiary);
+      margin-bottom: var(--space-sm);
+    }
+
+    .cs-related-title {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: var(--fs-h3);
+      font-weight: 400;
+      line-height: 1.25;
+      color: var(--color-text);
+      margin-bottom: var(--space-sm);
+    }
+
+    .cs-related-desc {
+      font-size: var(--fs-small);
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+      margin-bottom: var(--space-md);
+    }
+
+    .cs-related-link {
+      font-size: var(--fs-small);
+      font-weight: 600;
+      color: var(--color-primary);
+      text-decoration: none;
+    }
+    .cs-related-link:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    @media (max-width: 900px) {
+      .cs-related-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+    .cs-footer {
+      padding: var(--space-lg) 0;
+      text-align: center;
+      font-size: var(--fs-xs);
+      color: var(--color-text-tertiary);
+    }
+
+
+    /* =========================================================
+       REVEAL ANIMATIONS
+       ========================================================= */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity var(--duration-slow) var(--ease-out),
+                  transform var(--duration-slow) var(--ease-out);
+    }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================
+       NAVIGATION
+       ============================================ -->
+  <nav class="cs-nav">
+    <div class="container">
+      <a href="index.html" class="cs-nav-brand">Hat Tip</a>
+      <a href="index.html#case-studies" class="cs-nav-back">&larr; Back to all case studies</a>
+    </div>
+  </nav>
+
+
+  <!-- ============================================
+       HERO — VIDEO-FIRST, 2-COLUMN
+       ============================================ -->
+  <section class="cs-hero">
+    <div class="container">
+      <div class="cs-hero-grid cs-hero-grid--single">
+        <div class="reveal">
+          <p class="cs-hero-eyebrow">Case Study</p>
+          <h1 class="cs-hero-headline">How Ammo Studio Uses Hat Tip to Drive 20,000 Impressions/week</h1>
+          <p class="cs-hero-summary">Ammo Studio is a high-end Webflow agency serving some of tech and venture capital's hottest companies, including Pypstream, M13, Bigeye, and more. Their Founder, Dennis Onalaja, wanted help driving both top-of-funnel awareness and bottom-of-funnel lead-flow via his socials. Here's how Hat Tip helped:</p>
+          <div class="cs-hero-logo">
+            <img src="Logo/Ammo.png" alt="Ammo Studio logo">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       KPI SECTION
+       ============================================ -->
+  <section class="cs-kpis reveal">
+    <div class="container">
+      <div class="cs-kpi-grid">
+        <div class="cs-kpi-card">
+          <div class="cs-kpi-value">152K</div>
+          <div class="cs-kpi-label">LinkedIn Impressions (Last 3 Months)</div>
+        </div>
+        <div class="cs-kpi-card">
+          <div class="cs-kpi-value">13</div>
+          <div class="cs-kpi-label">Inbound Leads From Socials</div>
+        </div>
+        <div class="cs-kpi-card">
+          <div class="cs-kpi-value">+1,900</div>
+          <div class="cs-kpi-label">LinkedIn Followers (2x'd in 3 Months)</div>
+        </div>
+        <div class="cs-kpi-card">
+          <div class="cs-kpi-value">&lt;30</div>
+          <div class="cs-kpi-label">Minutes/Week on Content</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       CLIENT SNAPSHOT + CONTEXT
+       ============================================ -->
+  <section class="cs-context">
+    <div class="container">
+      <div class="cs-context-grid">
+        <aside class="cs-snapshot reveal">
+          <h3 class="cs-snapshot-title">Client Snapshot</h3>
+          <div class="cs-snapshot-row">
+            <span class="cs-snapshot-key">Company</span>
+            <span class="cs-snapshot-val">Ammo Studio</span>
+          </div>
+          <div class="cs-snapshot-row">
+            <span class="cs-snapshot-key">Industry</span>
+            <span class="cs-snapshot-val">Webflow Agency</span>
+          </div>
+          <div class="cs-snapshot-row">
+            <span class="cs-snapshot-key">Founder</span>
+            <span class="cs-snapshot-val">Dennis Onalaja</span>
+          </div>
+          <div class="cs-snapshot-row">
+            <span class="cs-snapshot-key">Focus</span>
+            <span class="cs-snapshot-val">Founder Brand</span>
+          </div>
+          <div class="cs-snapshot-row">
+            <span class="cs-snapshot-key">Channel</span>
+            <span class="cs-snapshot-val">LinkedIn</span>
+          </div>
+          <div class="cs-snapshot-row">
+            <span class="cs-snapshot-key">Key Result</span>
+            <span class="cs-snapshot-val">20K Impressions/Week</span>
+          </div>
+        </aside>
+
+        <div class="cs-context-body reveal" style="transition-delay: 0.1s;">
+          <h2>It's Time For A Content Partner</h2>
+          <p>Dennis, the agency's Founder, saw a friend&mdash;and a current Hat Tip client's content&mdash;on LinkedIn. Impressed, he inquired about if his friend had a content partner. His friend introduce Dennis to Hat Tip.</p>
+          <p>Pre-Hat Tip, Dennis had a largely inactive Linkedin account with 1,700 followers.</p>
+          <p>Like many Founders, he knew he could use it to drive leads and awareness, but didn't know how.</p>
+          <p>&ldquo;I saw other Founders winning a ton of business from LinkedIn, but I wasn't sure on how to strategize or execute content at scale&rdquo;, Dennis said.</p>
+          <p>So, after a warm introduction from an existing Hat Tip client, Dennis was off and running with Hat Tip.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       CHALLENGE SECTION
+       ============================================ -->
+  <section class="cs-section cs-section--alt">
+    <div class="container container--narrow">
+      <div class="reveal">
+        <p class="cs-section-eyebrow">The Challenge</p>
+        <h2 class="cs-section-heading">It's Time For A Content Partner</h2>
+        <p class="cs-body-text">Dennis, the agency's Founder, saw a friend&mdash;and a current Hat Tip client's content&mdash;on LinkedIn. Impressed, he inquired about if his friend had a content partner. His friend introduce Dennis to Hat Tip.</p>
+        <p class="cs-body-text">Pre-Hat Tip, Dennis had a largely inactive Linkedin account with 1,700 followers.</p>
+        <p class="cs-body-text">Like many Founders, he knew he could use it to drive leads and awareness, but didn't know how.</p>
+      </div>
+      <div class="cs-pull-quote reveal">
+        <blockquote>&ldquo;I saw other Founders winning a ton of business from LinkedIn, but I wasn't sure on how to strategize or execute content at scale&rdquo;</blockquote>
+        <cite>Dennis Onalaja, Founder of Ammo Studio</cite>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       SOLUTION / WORKFLOW SECTION
+       ============================================ -->
+  <section class="cs-section">
+    <div class="container container--narrow">
+      <div class="reveal">
+        <p class="cs-section-eyebrow">The Solution</p>
+        <h2 class="cs-section-heading">A Turnkey Content Engine</h2>
+      </div>
+
+      <div class="cs-workflow-modules">
+        <div class="cs-workflow-module reveal">
+          <h3>Content Buckets &amp; Strategy</h3>
+          <p>Immediately, we ideated Content Buckets for Dennis. These are buckets we can ask questions in that touch each part of the content funnel &ndash; designed to attract eyeballs, nurture them, and convert them into leads from his socials.</p>
+        </div>
+        <div class="cs-workflow-module reveal">
+          <h3>Bi-Weekly Content Interviews</h3>
+          <p>After, we scheduled a bi-weekly content interview with Dennis. Here, we ask the custom prompts to get his raw thoughts for content production. We transcribe the call and get to work producing high-quality LinkedIn content that both sounds like him and resonates with his audience.</p>
+        </div>
+        <div class="cs-workflow-module reveal">
+          <h3>His Personal Content Team</h3>
+          <p>Every week, we share the content with Dennis so he can review it and request whatever edits are necessary. No singular post ever gets published if Dennis isn't 100% happy with it, and we don't feel it's perfect.</p>
+        </div>
+        <div class="cs-workflow-module reveal">
+          <h3>Content = 50% of The Battle</h3>
+          <p>We publish and engage with the content for Dennis, to ensure maximum reach. Not doing this is voluntarily leaving performance on the table. More than that, we make sure his content gets in front of the right people&mdash;his ICP. To do so, we take Dennis' ICP as per Sales Navigator search criteria, and filter for the subset of his ICP most active on LinkedIn. Then, we max out his connection requests each week (59% acceptance rate) to ensure the right content gets in front of the right people. All Dennis has to do is approve the content weekly, and show up to his content interview bi-weekly. We handle the rest.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       HIGHLIGHT MOMENT
+       ============================================ -->
+  <section class="cs-highlight reveal">
+    <div class="container">
+      <div class="cs-highlight-stat">20K Impressions/Week</div>
+      <p class="cs-highlight-context">In just 3 months, Dennis went from a largely inactive LinkedIn account to generating 20,000 impressions per week consistently.</p>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       ONGOING RESULTS
+       ============================================ -->
+  <section class="cs-section">
+    <div class="container container--narrow">
+      <div class="reveal">
+        <p class="cs-section-eyebrow">Sustained Results</p>
+        <h2 class="cs-section-heading">Compounding Impact Over Time</h2>
+        <p class="cs-body-text">These weren't one-time spikes. Hat Tip built a content system that compounds &mdash; consistently generating awareness, engagement, and inbound pipeline month after month.</p>
+      </div>
+
+      <div class="cs-results-grid reveal" style="transition-delay: 0.1s;">
+        <div class="cs-result-card">
+          <div class="cs-result-value">152K</div>
+          <div class="cs-result-label">LinkedIn Impressions</div>
+        </div>
+        <div class="cs-result-card">
+          <div class="cs-result-value">13</div>
+          <div class="cs-result-label">Inbound Leads</div>
+        </div>
+        <div class="cs-result-card">
+          <div class="cs-result-value">2&times;</div>
+          <div class="cs-result-label">Follower Growth</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       TESTIMONIAL FEATURE
+       ============================================ -->
+  <section class="cs-testimonial reveal">
+    <div class="container">
+      <div class="cs-testimonial-inner">
+        <blockquote>&ldquo;Hat Tip helped me find my voice on social. They ideate and create content that sounds like me, while driving awareness and leads our agency. Strongly recommend!&rdquo;</blockquote>
+        <div class="cs-testimonial-attribution">
+          <img class="cs-testimonial-photo" src="headshots/Dennis Onalaja.png" alt="Dennis Onalaja">
+          <div class="cs-testimonial-meta">
+            <div class="cs-testimonial-name">Dennis Onalaja</div>
+            <div class="cs-testimonial-title">Founder, Ammo Studio</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       CTA SECTION
+       ============================================ -->
+  <section class="cs-cta reveal">
+    <div class="container">
+      <h2 class="cs-cta-heading">Ready to Build Your Founder Brand?</h2>
+      <p class="cs-cta-sub">See how Hat Tip can turn your LinkedIn presence into a predictable pipeline engine.</p>
+      <a href="https://calendly.com/hattip/30min" class="btn btn-primary">Book a Call</a>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       RELATED CASE STUDIES
+       ============================================ -->
+  <section class="cs-related">
+    <div class="container">
+      <h2 class="cs-related-heading reveal">More Client Stories</h2>
+      <div class="cs-related-grid">
+
+        <a href="case-study-nick.html" class="cs-related-card reveal">
+          <div class="cs-related-industry">Lead Generation</div>
+          <h3 class="cs-related-title">How Leadbird Booked 700+ Demos From Social With Hat Tip</h3>
+          <p class="cs-related-desc">Leadbird is the premier lead generation agency for 150+ B2B businesses. Hat Tip helped them drive 700+ demos from founder-led social content.</p>
+          <span class="cs-related-link">Read Full Story &rarr;</span>
+        </a>
+
+        <a href="case-study-matt.html" class="cs-related-card reveal" style="transition-delay: 0.1s;">
+          <div class="cs-related-industry">Media &amp; Creator</div>
+          <h3 class="cs-related-title">+12,500 Followers and Dozens of Closed Clients From Founder Content</h3>
+          <p class="cs-related-desc">Media company founder grows from 500 to 13,000+ LinkedIn followers while building 100% inbound client acquisition engine.</p>
+          <span class="cs-related-link">Read Full Story &rarr;</span>
+        </a>
+
+        <a href="case-study-tyler.html" class="cs-related-card reveal" style="transition-delay: 0.2s;">
+          <div class="cs-related-industry">Staffing Platform</div>
+          <h3 class="cs-related-title">How Hat Tip Drove $65K in Attributable Revenue In Just 60 Days For Coconut</h3>
+          <p class="cs-related-desc">Coconut's Co-Founder leveraged Hat Tip to generate $65K in attributable revenue and 360K impressions in just 4 months.</p>
+          <span class="cs-related-link">Read Full Story &rarr;</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       FOOTER
+       ============================================ -->
+  <footer class="cs-footer">
+    <div class="container" id="cs-footer-text"></div>
+  </footer>
+
+
+  <!-- ============================================
+       JAVASCRIPT
+       ============================================ -->
+  <script>
+    // Footer year
+    document.getElementById('cs-footer-text').textContent =
+      '\u00a9 ' + new Date().getFullYear() + ' Hat Tip. All rights reserved.';
+
+    // Scroll reveal
+    (function() {
+      var elements = document.querySelectorAll('.reveal');
+      if (!elements.length) return;
+
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+      elements.forEach(function(el) { observer.observe(el); });
+    })();
+  </script>
+
+</body>
+</html>
