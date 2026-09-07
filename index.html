@@ -323,10 +323,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       top: 0;
       z-index: 1000;
       background: rgba(248, 246, 237, 0.85);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--color-border-light);
       height: var(--nav-height);
+    }
+    /* Blur sits on a pseudo-element: backdrop-filter on .nav itself makes .nav the
+       containing block for the position: fixed mobile menu, trapping it in the 72px bar. */
+    .nav::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      pointer-events: none;
     }
     .nav-inner {
       display: flex;
@@ -413,7 +422,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         top: var(--nav-height);
         left: 0;
         right: 0;
-        bottom: 0;
+        height: calc(100vh - var(--nav-height));
+        height: calc(100dvh - var(--nav-height));
+        overflow-y: auto;
         background: var(--color-canvas);
         z-index: 999;
         padding: var(--space-lg) var(--container-padding);
@@ -422,6 +433,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       }
       .nav-mobile-menu.is-open {
         display: flex;
+      }
+      .nav:has(.nav-mobile-menu.is-open) {
+        background: var(--color-canvas);
       }
       .nav-mobile-menu a {
         display: block;
@@ -1653,27 +1667,85 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       var toggle = document.getElementById('nav-toggle');
       var menu = document.getElementById('nav-mobile');
       var links = menu.querySelectorAll('a');
+      var behind = document.querySelectorAll('main, footer');
+      var savedScrollY = 0;
+
+      function isOpen() {
+        return toggle.getAttribute('aria-expanded') === 'true';
+      }
+
+      function setBehindHidden(hidden) {
+        for (var i = 0; i < behind.length; i++) {
+          if (hidden) {
+            behind[i].setAttribute('inert', '');
+            behind[i].setAttribute('aria-hidden', 'true');
+          } else {
+            behind[i].removeAttribute('inert');
+            behind[i].removeAttribute('aria-hidden');
+          }
+        }
+      }
+
+      function openMenu() {
+        savedScrollY = window.pageYOffset;
+        toggle.setAttribute('aria-expanded', 'true');
+        menu.classList.add('is-open');
+        setBehindHidden(true);
+        // Fixed body rather than overflow: hidden, which iOS Safari ignores for touch scrolling
+        document.body.style.position = 'fixed';
+        document.body.style.top = -savedScrollY + 'px';
+        document.body.style.width = '100%';
+        links[0].focus();
+      }
 
       function closeMenu() {
+        if (!isOpen()) return;
         toggle.setAttribute('aria-expanded', 'false');
         menu.classList.remove('is-open');
-        document.body.style.overflow = '';
+        setBehindHidden(false);
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.width = '';
+        // Restore instantly: html has scroll-behavior: smooth, which would animate the jump
+        document.documentElement.style.scrollBehavior = 'auto';
+        window.scrollTo(0, savedScrollY);
+        document.documentElement.style.scrollBehavior = '';
+        toggle.focus();
       }
 
       toggle.addEventListener('click', function() {
-        var isOpen = toggle.getAttribute('aria-expanded') === 'true';
-        if (isOpen) {
-          closeMenu();
-        } else {
-          toggle.setAttribute('aria-expanded', 'true');
-          menu.classList.add('is-open');
-          document.body.style.overflow = 'hidden';
-        }
+        if (isOpen()) { closeMenu(); } else { openMenu(); }
       });
 
       for (var i = 0; i < links.length; i++) {
         links[i].addEventListener('click', closeMenu);
       }
+
+      document.addEventListener('keydown', function(e) {
+        if (!isOpen()) return;
+        if (e.key === 'Escape') {
+          closeMenu();
+          return;
+        }
+        if (e.key !== 'Tab') return;
+        // Keep Tab cycling between the X button and the panel links
+        var focusables = [toggle].concat(Array.prototype.slice.call(links));
+        var first = focusables[0];
+        var last = focusables[focusables.length - 1];
+        var idx = focusables.indexOf(document.activeElement);
+        if (e.shiftKey && (idx <= 0)) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && (idx === -1 || idx === focusables.length - 1)) {
+          e.preventDefault();
+          first.focus();
+        }
+      });
+
+      // The panel is hidden by CSS above 768px; release the page if the viewport crosses over
+      window.matchMedia('(min-width: 769px)').addEventListener('change', function(e) {
+        if (e.matches) closeMenu();
+      });
     })();
 
 
